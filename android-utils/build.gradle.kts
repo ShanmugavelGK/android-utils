@@ -5,7 +5,7 @@ plugins {
     id("signing")
 }
 
-version = "1.0.0"  // Define the version of your SDK
+version = "1.0.3"  // Define the version of your SDK
 
 
 android {
