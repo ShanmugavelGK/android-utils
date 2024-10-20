@@ -1,7 +1,12 @@
 plugins {
     id("com.android.library")
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
+    id("signing")
 }
+
+version = "1.0.0"  // Define the version of your SDK
+
 
 android {
     namespace = "com.mycube.android_utils"
@@ -34,7 +39,23 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
 }
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.ShanmugavelGK"
+            artifactId = "android-utils"
+            version = version
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
 
 dependencies {
 
